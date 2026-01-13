@@ -1090,6 +1090,51 @@ em {
 }
 
 /* ========================================
+   Mobile Enhancements
+======================================== */
+/* Prevent horizontal scroll */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Better touch targets (minimum 44px) */
+@media (pointer: coarse) {
+    .btn {
+        min-height: 44px;
+        padding: var(--space-md) var(--space-lg);
+    }
+
+    .nav-links a {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .x-action {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .alt-badge-btn {
+        min-width: 44px;
+        min-height: 44px;
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    .alt-modal-close {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* Smooth scrolling on iOS */
+@supports (-webkit-touch-callout: none) {
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* ========================================
    Responsive
 ======================================== */
 @media (max-width: 1024px) {
@@ -1161,5 +1206,29 @@ em {
 
     .cta-buttons {
         flex-direction: column;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    .upload-zone {
+        padding: var(--space-2xl) var(--space-md);
+    }
+
+    .upload-text {
+        font-size: 1rem;
+    }
+
+    .alt-modal-content {
+        margin: var(--space-md);
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .demo-instruction {
+        flex-direction: column;
+        text-align: center;
     }
 }
