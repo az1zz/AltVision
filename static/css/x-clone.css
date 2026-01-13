@@ -1,0 +1,302 @@
+/* ========================================
+   X (Twitter) Post Clone Styles
+   Pixel-accurate dark theme recreation
+======================================== */
+
+/* X Design Tokens */
+:root {
+    --x-bg: #000000;
+    --x-bg-hover: #080808;
+    --x-border: #2f3336;
+    --x-text-primary: #e7e9ea;
+    --x-text-secondary: #71767b;
+    --x-accent: #1d9bf0;
+    --x-accent-hover: #1a8cd8;
+    --x-success: #00ba7c;
+    --x-like: #f91880;
+    --x-repost: #00ba7c;
+}
+
+/* Post Container */
+.x-post {
+    background: var(--x-bg);
+    border: 1px solid var(--x-border);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    max-width: 598px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    transition: background var(--transition-fast);
+}
+
+.x-post:hover {
+    background: var(--x-bg-hover);
+}
+
+/* Avatar */
+.x-post-avatar {
+    flex-shrink: 0;
+}
+
+.avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Content */
+.x-post-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Header */
+.x-post-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 4px;
+}
+
+.x-post-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--x-text-primary);
+}
+
+.verified-badge {
+    width: 18px;
+    height: 18px;
+    color: var(--x-accent);
+    flex-shrink: 0;
+}
+
+.x-post-handle,
+.x-post-separator,
+.x-post-time {
+    font-size: 15px;
+    color: var(--x-text-secondary);
+}
+
+.x-post-handle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Post Text */
+.x-post-text {
+    margin-bottom: 12px;
+}
+
+.x-post-text p {
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--x-text-primary);
+    word-wrap: break-word;
+}
+
+.hashtag {
+    color: var(--x-accent);
+    cursor: pointer;
+}
+
+.hashtag:hover {
+    text-decoration: underline;
+}
+
+/* Image Container */
+.x-post-image-container {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    background: #16181c;
+    min-height: 200px;
+}
+
+.x-post-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-fallback {
+    width: 100%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--x-text-secondary);
+    background: #16181c;
+}
+
+.image-fallback span {
+    font-size: 14px;
+}
+
+/* ALT Badge Button */
+.alt-badge-btn {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(0, 0, 0, 0.77);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 5px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-family: inherit;
+    letter-spacing: 0.02em;
+}
+
+.alt-badge-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.05);
+}
+
+.alt-badge-btn:focus-visible {
+    outline: 2px solid var(--x-accent);
+    outline-offset: 2px;
+}
+
+.alt-badge-btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.alt-badge-btn.loading::after {
+    content: '...';
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+/* Actions */
+.x-post-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 425px;
+    margin-top: 4px;
+}
+
+.x-action {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px;
+    margin: -8px;
+    background: transparent;
+    border: none;
+    border-radius: 9999px;
+    color: var(--x-text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.x-action svg {
+    flex-shrink: 0;
+}
+
+.x-action:hover {
+    color: var(--x-accent);
+    background: rgba(29, 155, 240, 0.1);
+}
+
+.x-action:nth-child(2):hover {
+    color: var(--x-repost);
+    background: rgba(0, 186, 124, 0.1);
+}
+
+.x-action:nth-child(3):hover {
+    color: var(--x-like);
+    background: rgba(249, 24, 128, 0.1);
+}
+
+.x-action:nth-child(3):hover svg path {
+    fill: var(--x-like);
+}
+
+.action-count {
+    font-size: 13px;
+    min-width: 20px;
+}
+
+.x-action-group {
+    display: flex;
+    gap: 0;
+}
+
+/* Responsive adjustments for X post */
+@media (max-width: 600px) {
+    .x-post {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .x-post-image-container {
+        border-radius: 12px;
+    }
+
+    .x-post-actions {
+        max-width: 100%;
+    }
+}
+
+/* Animation for demo reveal */
+.x-post-wrapper {
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effect on image for accessibility hint */
+.x-post-image-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, transparent 30%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    pointer-events: none;
+}
+
+.x-post-image-container:hover::after {
+    opacity: 1;
+}
+
+.x-post-image-container:hover .alt-badge-btn {
+    background: var(--x-accent);
+    color: white;
+}

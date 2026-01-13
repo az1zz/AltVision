@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AltVision - AI-Powered Image Descriptions for Everyone</title>
+    <meta name="description" content="Making the web visible to everyone through AI-generated ALT text for images.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='images/favicon.svg') }}">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/x-clone.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" aria-label="AltVision Home">
+                <span class="logo-icon" aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="16" cy="16" r="6" fill="currentColor"/>
+                        <path d="M16 2v6M16 24v6M2 16h6M24 16h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                <span class="logo-text">AltVision</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#try-it">Try It</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-bg" aria-hidden="true">
+            <div class="hero-gradient"></div>
+            <div class="hero-grain"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot" aria-hidden="true"></span>
+                Accessibility Matters
+            </div>
+            <h1 class="hero-title">
+                Making the Web
+                <span class="title-highlight">Visible</span>
+                to Everyone
+            </h1>
+            <p class="hero-subtitle">
+                <strong>285 million</strong> people worldwide are visually impaired.
+                When images lack ALT text, screen readers simply say <em>"image"</em> —
+                leaving millions unable to understand the visual web.
+            </p>
+            <div class="hero-cta">
+                <a href="#demo" class="btn btn-primary">
+                    See How AI Can Help
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="#try-it" class="btn btn-secondary">Try It Yourself</a>
+            </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+            <div class="visual-card">
+                <div class="card-image">
+                    <div class="image-placeholder">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="16" cy="20" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M4 32l12-8 8 6 12-10 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="card-alt">
+                    <span class="alt-label">ALT</span>
+                    <span class="alt-text typing">A golden retriever playing fetch in a sunny park...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="stats-container">
+            <h2 class="stats-title">The Accessibility Gap</h2>
+            <div class="stats-grid">
+                <div class="stat-card" data-animate>
+                    <div class="stat-number">
+                        <span class="counter" data-target="96.3">0</span>
+                        <span class="stat-unit">%</span>
+                    </div>
+                    <p class="stat-label">of websites fail basic accessibility standards</p>
+                    <div class="stat-bar">
+                        <div class="stat-bar-fill" style="--fill-width: 96.3%"></div>
+                    </div>
+                </div>
+                <div class="stat-card" data-animate>
+                    <div class="stat-number">
+                        <span class="counter" data-target="55.5">0</span>
+                        <span class="stat-unit">%</span>
+                    </div>
+                    <p class="stat-label">of images on the web lack ALT text</p>
+                    <div class="stat-bar">
+                        <div class="stat-bar-fill" style="--fill-width: 55.5%"></div>
+                    </div>
+                </div>
+                <div class="stat-card" data-animate>
+                    <div class="stat-number">
+                        <span class="counter" data-target="285">0</span>
+                        <span class="stat-unit">M</span>
+                    </div>
+                    <p class="stat-label">visually impaired users globally</p>
+                    <div class="stat-bar">
+                        <div class="stat-bar-fill" style="--fill-width: 100%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="screen-reader-demo">
+                <div class="sr-icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="sr-content">
+                    <p class="sr-voice">"Image. Image. Image. Link: Read more."</p>
+                    <p class="sr-explanation">This is what a screen reader says when images lack descriptions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- X Clone Demo Section -->
+    <section class="demo-section" id="demo">
+        <div class="demo-container">
+            <div class="demo-header">
+                <span class="demo-overline">Live Demo</span>
+                <h2 class="demo-title">See ALT Text in Action</h2>
+                <p class="demo-subtitle">
+                    Imagine if every image on social media had an AI-generated description.
+                    Click the <span class="alt-badge-inline">ALT</span> button to see how it works.
+                </p>
+            </div>
+
+            <div class="x-post-wrapper">
+                <article class="x-post" aria-label="Example social media post">
+                    <div class="x-post-avatar">
+                        <div class="avatar-placeholder">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="x-post-content">
+                        <header class="x-post-header">
+                            <span class="x-post-name">Abdulaziz BinRuqush</span>
+                            <svg class="verified-badge" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-label="Verified">
+                                <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"/>
+                            </svg>
+                            <span class="x-post-handle">@AZ1RUQ</span>
+                            <span class="x-post-separator">·</span>
+                            <span class="x-post-time">2h</span>
+                        </header>
+                        <div class="x-post-text">
+                            <p>AI is transforming how we make the web accessible for everyone! Every image deserves a description. <span class="hashtag">#a11y</span> <span class="hashtag">#accessibility</span> <span class="hashtag">#AIforGood</span></p>
+                        </div>
+                        <div class="x-post-image-container">
+                            <img
+                                src="{{ url_for('static', filename='images/demo-post.jpg') }}"
+                                alt=""
+                                id="demoImage"
+                                class="x-post-image"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            >
+                            <div class="image-fallback" style="display: none;">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                    <rect x="8" y="12" width="48" height="40" rx="4" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="22" cy="28" r="6" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M8 44l16-12 10 8 14-10 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <span>Demo Image</span>
+                            </div>
+                            <button
+                                class="alt-badge-btn"
+                                id="altBadgeBtn"
+                                aria-label="Show AI-generated image description"
+                                aria-expanded="false"
+                                aria-controls="altModal"
+                            >
+                                ALT
+                            </button>
+                        </div>
+                        <footer class="x-post-actions">
+                            <button class="x-action" aria-label="Reply">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118 .264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z" fill="currentColor"/>
+                                </svg>
+                                <span class="action-count">42</span>
+                            </button>
+                            <button class="x-action" aria-label="Repost">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M23.77 15.67c-.292-.293-.767-.293-1.06 0l-2.22 2.22V7.65c0-2.068-1.683-3.75-3.75-3.75h-5.85c-.414 0-.75.336-.75.75s.336.75.75.75h5.85c1.24 0 2.25 1.01 2.25 2.25v10.24l-2.22-2.22c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l3.5 3.5c.145.147.337.22.53.22s.383-.072.53-.22l3.5-3.5c.294-.292.294-.767 0-1.06zm-10.66 3.28H7.26c-1.24 0-2.25-1.01-2.25-2.25V6.46l2.22 2.22c.148.147.34.22.532.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06l-3.5-3.5c-.293-.294-.768-.294-1.06 0l-3.5 3.5c-.294.292-.294.767 0 1.06s.767.293 1.06 0l2.22-2.22V16.7c0 2.068 1.683 3.75 3.75 3.75h5.85c.414 0 .75-.336.75-.75s-.337-.75-.75-.75z" fill="currentColor"/>
+                                </svg>
+                                <span class="action-count">128</span>
+                            </button>
+                            <button class="x-action" aria-label="Like">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z" fill="currentColor"/>
+                                </svg>
+                                <span class="action-count">1.2K</span>
+                            </button>
+                            <button class="x-action" aria-label="Views">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M8.75 21V3h2v18h-2zM18.75 21V8.5h2V21h-2zM13.75 21v-6h2v6h-2zM3.75 21v-3h2v3h-2z" fill="currentColor"/>
+                                </svg>
+                                <span class="action-count">24.5K</span>
+                            </button>
+                            <div class="x-action-group">
+                                <button class="x-action" aria-label="Bookmark">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M19.9 23.5c-.157 0-.312-.05-.442-.144L12 17.928l-7.458 5.43c-.228.164-.53.19-.782.06-.25-.127-.41-.385-.41-.667V5.6c0-1.24 1.01-2.25 2.25-2.25h12.798c1.24 0 2.25 1.01 2.25 2.25v17.15c0 .282-.158.54-.41.668-.106.054-.22.082-.336.082zM12 16.25c.155 0 .31.048.44.144l6.71 4.883V5.6c0-.412-.337-.75-.75-.75H5.6c-.413 0-.75.338-.75.75v15.677l6.71-4.883c.13-.096.285-.144.44-.144z" fill="currentColor"/>
+                                    </svg>
+                                </button>
+                                <button class="x-action" aria-label="Share">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M17.53 7.47l-5-5c-.293-.293-.768-.293-1.06 0l-5 5c-.294.293-.294.768 0 1.06s.767.294 1.06 0l3.72-3.72V15c0 .414.336.75.75.75s.75-.336.75-.75V4.81l3.72 3.72c.146.147.338.22.53.22s.384-.072.53-.22c.293-.293.293-.767 0-1.06z" fill="currentColor"/>
+                                        <path d="M19.708 21.944H4.292C3.028 21.944 2 20.916 2 19.652V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 .437.355.792.792.792h15.416c.437 0 .792-.355.792-.792V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 1.264-1.028 2.292-2.292 2.292z" fill="currentColor"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+            </div>
+
+            <div class="demo-instruction">
+                <div class="instruction-arrow" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p>Click the <span class="alt-badge-inline">ALT</span> badge on the image to generate a description</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALT Modal -->
+    <div class="alt-modal" id="altModal" role="dialog" aria-modal="true" aria-labelledby="altModalTitle" hidden>
+        <div class="alt-modal-backdrop"></div>
+        <div class="alt-modal-content">
+            <header class="alt-modal-header">
+                <h3 id="altModalTitle">Image Description</h3>
+                <button class="alt-modal-close" aria-label="Close modal" id="altModalClose">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </header>
+            <div class="alt-modal-body">
+                <div class="alt-loading" id="altLoading">
+                    <div class="loading-spinner"></div>
+                    <p>Generating description...</p>
+                </div>
+                <div class="alt-result" id="altResult" hidden>
+                    <p class="alt-text" id="altText"></p>
+                </div>
+                <div class="alt-error" id="altError" hidden>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <p id="altErrorText"></p>
+                </div>
+            </div>
+            <footer class="alt-modal-footer">
+                <button class="btn btn-secondary" id="regenerateBtn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M14 8A6 6 0 1 1 8 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M10 2H8v2h2V2z" fill="currentColor"/>
+                    </svg>
+                    Regenerate
+                </button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Try It Section -->
+    <section class="upload-section" id="try-it">
+        <div class="upload-container">
+            <div class="upload-header">
+                <span class="upload-overline">Interactive Demo</span>
+                <h2 class="upload-title">Try It Yourself</h2>
+                <p class="upload-subtitle">Upload any image and watch AI generate an accessible description in seconds.</p>
+            </div>
+
+            <div class="upload-zone" id="uploadZone" role="button" tabindex="0" aria-label="Click or drag to upload an image">
+                <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp,image/gif" hidden aria-describedby="uploadHelp">
+                <div class="upload-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="16" cy="20" r="4" stroke="currentColor" stroke-width="2"/>
+                        <path d="M4 32l12-8 8 6 12-10 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="40" cy="12" r="8" fill="var(--color-accent)"/>
+                        <path d="M40 9v6M37 12h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <p class="upload-text">Drag & drop an image here</p>
+                <p class="upload-or">or</p>
+                <span class="upload-btn">Browse Files</span>
+                <p class="upload-formats" id="uploadHelp">Supports: JPG, PNG, WEBP, GIF (Max 4MB)</p>
+            </div>
+
+            <div class="upload-results" id="uploadResults" hidden>
+                <div class="result-card">
+                    <div class="result-preview">
+                        <img id="previewImage" alt="Uploaded image preview">
+                    </div>
+                    <div class="result-output">
+                        <div class="result-header">
+                            <h3>Generated ALT Text</h3>
+                            <div class="result-badge">AI Generated</div>
+                        </div>
+                        <div class="result-loading" id="resultLoading">
+                            <div class="loading-spinner"></div>
+                            <p>Analyzing image...</p>
+                        </div>
+                        <div class="result-content" id="resultContent" hidden>
+                            <p class="result-text" id="generatedAlt"></p>
+                            <div class="result-actions">
+                                <button class="btn btn-primary" id="copyAlt">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M11 3H3a1 1 0 0 0-1 1v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                    Copy to Clipboard
+                                </button>
+                                <button class="btn btn-secondary" id="tryAnother">Upload Another</button>
+                            </div>
+                        </div>
+                        <div class="result-error" id="resultError" hidden>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M10 6v4M10 13v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <p id="resultErrorText"></p>
+                            <button class="btn btn-secondary" id="retryUpload">Try Again</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2 class="cta-title">Every Image Tells a Story</h2>
+                <p class="cta-subtitle">Don't let millions miss out. Make your content accessible today.</p>
+                <div class="cta-buttons">
+                    <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener" class="btn btn-light">
+                        Learn WCAG Guidelines
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="https://aistudio.google.com/" target="_blank" rel="noopener" class="btn btn-outline-light">
+                        Get Gemini API Free
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">
+                        <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="16" cy="16" r="6" fill="currentColor"/>
+                            <path d="M16 2v6M16 24v6M2 16h6M24 16h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span>AltVision</span>
+                </div>
+                <p class="footer-text">Built to demonstrate AI-powered accessibility solutions. Making the web visible to everyone.</p>
+                <div class="footer-links">
+                    <a href="mailto:abdulaziz.ruqush@gmail.com">Email</a>
+                    <a href="https://www.linkedin.com/in/abdulaziz-binruqush-262448252/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://github.com/az1zz" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AltVision Demo. Educational purposes only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="alert" aria-live="polite" hidden>
+        <span class="toast-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M13.5 4.5L6 12 2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+        <span class="toast-message" id="toastMessage"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/x-clone.js') }}"></script>
+</body>
+</html>
