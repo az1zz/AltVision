@@ -104,20 +104,6 @@ Try the live demo: [Your Railway URL here]
    http://localhost:5000
    ```
 
-## Deployment
-
-### Deploy to Railway
-
-1. Push your code to GitHub
-2. Go to [railway.app](https://railway.app)
-3. Create new project → Deploy from GitHub repo
-4. Select your repository
-5. Add environment variables in the Variables tab:
-   - `CLOUDINARY_CLOUD_NAME`
-   - `CLOUDINARY_API_KEY`
-   - `CLOUDINARY_API_SECRET`
-6. Railway will automatically deploy your app
-
 ## Tech Stack
 
 - **Backend**: Python, Flask
@@ -170,13 +156,7 @@ Generate ALT text for an image.
 
 ## Contributing
 
-Contributions are welcome! Here's how you can help:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Contributions are welcome! 
 
 ### Ideas for Contributions
 
