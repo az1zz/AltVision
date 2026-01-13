@@ -29,7 +29,7 @@ ALT (alternative) text is a written description of an image that:
 
 ## Demo
 
-Try the live demo: [Your Railway URL here]
+**[Try the Live Demo](https://web-production-8e258.up.railway.app/)** - No installation required!
 
 ### How It Works
 
