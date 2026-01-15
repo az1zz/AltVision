@@ -51,6 +51,13 @@
     color: white;
 }
 
+.avatar-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 /* Content */
 .x-post-content {
     flex: 1;
@@ -262,6 +269,28 @@
 
     .x-post-actions {
         max-width: 100%;
+        gap: 4px;
+    }
+
+    .x-action {
+        padding: 6px;
+        margin: 0;
+        gap: 2px;
+    }
+
+    .x-action svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .action-count {
+        font-size: 12px;
+        min-width: auto;
+    }
+
+    .x-action-group {
+        gap: 0;
+        flex-shrink: 0;
     }
 }
 
