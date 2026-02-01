@@ -38,10 +38,17 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#demo">Demo</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#try-it">Try It</a></li>
             </ul>
         </div>
     </nav>
+
+    <!-- Proof of Concept Banner -->
+    <div class="poc-banner" role="banner">
+        <span class="poc-icon" aria-hidden="true">💡</span>
+        <p><strong>Proof of Concept:</strong> This is a demonstration of how the web could become more accessible. Imagine every platform with this feature built-in.</p>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="about">
@@ -52,26 +59,30 @@
         <div class="hero-content">
             <div class="hero-badge">
                 <span class="badge-dot" aria-hidden="true"></span>
-                Accessibility Matters
+                Reimagining Accessibility
             </div>
             <h1 class="hero-title">
-                Making the Web
-                <span class="title-highlight">Visible</span>
-                to Everyone
+                What If Blind Users Could
+                <span class="title-highlight">See</span>
+                Every Image?
             </h1>
             <p class="hero-subtitle">
-                <strong>285 million</strong> people worldwide are visually impaired.
-                When images lack ALT text, screen readers simply say <em>"image"</em> —
-                leaving millions unable to understand the visual web.
+                When blind users scroll through <strong>X (Twitter)</strong>, they encounter countless images.
+                Their screen reader says <em>"image"</em> — nothing more. They miss the memes,
+                the photos, the visual stories that everyone else enjoys.
+            </p>
+            <p class="hero-subtitle hero-solution">
+                <strong>The solution?</strong> An <span class="alt-badge-inline">ALT</span> button on every image.
+                One tap, and AI describes what's in the picture — giving blind users access to the visual web.
             </p>
             <div class="hero-cta">
                 <a href="#demo" class="btn btn-primary">
-                    See How AI Can Help
+                    See It In Action
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                         <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </a>
-                <a href="#try-it" class="btn btn-secondary">Try It Yourself</a>
+                <a href="#how-it-works" class="btn btn-secondary">How It Works</a>
             </div>
         </div>
         <div class="hero-visual" aria-hidden="true">
@@ -148,10 +159,11 @@
         <div class="demo-container">
             <div class="demo-header">
                 <span class="demo-overline">Live Demo</span>
-                <h2 class="demo-title">See ALT Text in Action</h2>
+                <h2 class="demo-title">Experience It Like a Blind User</h2>
                 <p class="demo-subtitle">
-                    Imagine if every image on social media had an AI-generated description.
-                    Click the <span class="alt-badge-inline">ALT</span> button to see how it works.
+                    Below is a post from X. For blind users, the image is invisible — their screen reader
+                    just says "image." But with the <span class="alt-badge-inline">ALT</span> button,
+                    they can tap once and hear exactly what's in the picture.
                 </p>
             </div>
 
@@ -248,7 +260,7 @@
                         <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <p>Click the <span class="alt-badge-inline">ALT</span> badge on the image to generate a description</p>
+                <p>Tap the <span class="alt-badge-inline">ALT</span> button — just like a blind user would — to hear what's in the image</p>
             </div>
         </div>
     </section>
@@ -360,25 +372,71 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-container">
-            <div class="cta-content">
-                <h2 class="cta-title">Every Image Tells a Story</h2>
-                <p class="cta-subtitle">Don't let millions miss out. Make your content accessible today.</p>
-                <div class="cta-buttons">
-                    <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener" class="btn btn-light">
-                        Learn WCAG Guidelines
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                    <a href="https://aistudio.google.com/" target="_blank" rel="noopener" class="btn btn-outline-light">
-                        Get Gemini API Free
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
+    <!-- How It Works Section -->
+    <section class="how-it-works-section" id="how-it-works">
+        <div class="hiw-container">
+            <div class="hiw-header">
+                <span class="hiw-overline">Behind the Scenes</span>
+                <h2 class="hiw-title">How Does It Work?</h2>
+                <p class="hiw-subtitle">The magic is simple: AI vision models can describe images in natural language. Here's what happens when you click the ALT button.</p>
+            </div>
+
+            <div class="hiw-steps">
+                <div class="hiw-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Image Capture</h3>
+                        <p>When you tap the ALT button, the image is sent to an AI vision service (Cloudinary's AI in this demo).</p>
+                    </div>
+                </div>
+                <div class="hiw-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>AI Analysis</h3>
+                        <p>The AI examines the image — identifying objects, people, actions, text, colors, and context.</p>
+                    </div>
+                </div>
+                <div class="hiw-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Natural Description</h3>
+                        <p>A human-readable description is generated and spoken aloud by the screen reader.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hiw-prompt-section">
+                <h3 class="prompt-title">The Prompt Philosophy</h3>
+                <p class="prompt-intro">Good ALT text isn't just about listing objects — it's about conveying meaning. The AI is guided to create descriptions that are:</p>
+                <div class="prompt-principles">
+                    <div class="principle">
+                        <span class="principle-icon" aria-hidden="true">🎯</span>
+                        <div>
+                            <strong>Concise</strong>
+                            <p>Short enough to not interrupt the flow of browsing</p>
+                        </div>
+                    </div>
+                    <div class="principle">
+                        <span class="principle-icon" aria-hidden="true">💭</span>
+                        <div>
+                            <strong>Contextual</strong>
+                            <p>Focuses on what matters in the context of the post</p>
+                        </div>
+                    </div>
+                    <div class="principle">
+                        <span class="principle-icon" aria-hidden="true">🗣️</span>
+                        <div>
+                            <strong>Natural</strong>
+                            <p>Written like how you'd describe it to a friend</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="prompt-example">
+                    <p class="prompt-label">Example of a good AI-generated description:</p>
+                    <blockquote class="prompt-quote">
+                        "A woman laughing while holding a coffee cup at an outdoor cafe, sunlight streaming through the trees behind her."
+                    </blockquote>
+                    <p class="prompt-note">Not just "woman with cup" — but the emotion, the setting, the atmosphere.</p>
                 </div>
             </div>
         </div>
@@ -398,7 +456,7 @@
                     </span>
                     <span>AltVision</span>
                 </div>
-                <p class="footer-text">Built to demonstrate AI-powered accessibility solutions. Making the web visible to everyone.</p>
+                <p class="footer-text">A proof-of-concept demonstrating how AI could make social media accessible for blind users. Imagine if every platform had this built-in.</p>
                 <div class="footer-links">
                     <a href="mailto:abdulaziz.ruqush@gmail.com">Email</a>
                     <a href="https://www.linkedin.com/in/abdulaziz-binruqush-262448252/" target="_blank" rel="noopener">LinkedIn</a>

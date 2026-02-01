@@ -180,6 +180,7 @@ em {
     display: flex;
     align-items: center;
     padding: var(--space-4xl) var(--space-xl);
+    padding-top: calc(var(--space-4xl) + 36px);
     overflow: hidden;
 }
 
@@ -947,52 +948,220 @@ em {
 }
 
 /* ========================================
-   CTA Section
+   Proof of Concept Banner
 ======================================== */
-.cta-section {
-    padding: var(--space-4xl) var(--space-xl);
-    background: var(--gradient-warm);
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    opacity: 0.05;
-    pointer-events: none;
-}
-
-.cta-container {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-}
-
-.cta-content {
+.poc-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 150;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: linear-gradient(90deg, rgba(249, 115, 22, 0.9) 0%, rgba(251, 146, 60, 0.9) 100%);
+    color: var(--color-bg);
+    font-size: 0.85rem;
     text-align: center;
 }
 
-.cta-title {
-    font-size: clamp(2rem, 5vw, 3rem);
+.poc-banner p {
+    margin: 0;
+}
+
+.poc-banner strong {
     color: var(--color-bg);
+}
+
+.poc-icon {
+    font-size: 1rem;
+}
+
+/* Adjust nav position for banner */
+.nav {
+    top: 36px;
+}
+
+/* ========================================
+   Hero Solution Paragraph
+======================================== */
+.hero-solution {
+    background: rgba(249, 115, 22, 0.1);
+    border-left: 3px solid var(--color-accent);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin-top: var(--space-md);
+}
+
+/* ========================================
+   How It Works Section
+======================================== */
+.how-it-works-section {
+    padding: var(--space-4xl) var(--space-xl);
+    background: var(--color-bg);
+}
+
+.hiw-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hiw-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+}
+
+.hiw-overline {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
     margin-bottom: var(--space-md);
 }
 
-.cta-subtitle {
+.hiw-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: var(--space-md);
+}
+
+.hiw-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Steps */
+.hiw-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+}
+
+.hiw-step {
+    text-align: center;
+    padding: var(--space-xl);
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-base);
+}
+
+.hiw-step:hover {
+    border-color: rgba(249, 115, 22, 0.3);
+    transform: translateY(-4px);
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--gradient-warm);
+    color: var(--color-bg);
+    font-family: var(--font-display);
     font-size: 1.25rem;
-    color: rgba(0, 0, 0, 0.7);
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-lg);
+}
+
+.step-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+}
+
+.step-content p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+/* Prompt Section */
+.hiw-prompt-section {
+    background: var(--color-bg-elevated);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+}
+
+.prompt-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-md);
+    text-align: center;
+}
+
+.prompt-intro {
+    color: var(--color-text-secondary);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.prompt-principles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
     margin-bottom: var(--space-2xl);
 }
 
-.cta-buttons {
+.principle {
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-sm);
+}
+
+.principle-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-sm);
+}
+
+.principle strong {
+    display: block;
+    color: var(--color-text);
+    font-size: 1rem;
+    margin-bottom: var(--space-xs);
+}
+
+.principle p {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.prompt-example {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+}
+
+.prompt-label {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+}
+
+.prompt-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--color-text);
+    border-left: 3px solid var(--color-accent);
+    padding-left: var(--space-lg);
+    margin: 0 0 var(--space-md) 0;
+    line-height: 1.6;
+}
+
+.prompt-note {
+    font-size: 0.9rem;
+    color: var(--color-accent-light);
+    margin: 0;
 }
 
 /* ========================================
@@ -1154,6 +1323,7 @@ html, body {
 
     .hero {
         padding: var(--space-3xl) var(--space-md);
+        padding-top: calc(var(--space-3xl) + 36px);
     }
 
     .hero-title {
@@ -1187,6 +1357,24 @@ html, body {
 
     .sr-icon {
         margin: 0 auto;
+    }
+
+    /* How It Works responsive */
+    .hiw-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .prompt-principles {
+        grid-template-columns: 1fr;
+    }
+
+    .poc-banner {
+        font-size: 0.75rem;
+        padding: var(--space-xs) var(--space-sm);
+    }
+
+    .poc-banner .poc-icon {
+        display: none;
     }
 }
 
