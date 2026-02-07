@@ -126,8 +126,51 @@ function initUpload() {
         if (file) processFile(file);
     });
 
+    // Read Aloud button for upload results
+    const readAloudUploadBtn = document.getElementById('readAloudUploadBtn');
+
+    function stopUploadSpeech() {
+        window.speechSynthesis.cancel();
+        if (readAloudUploadBtn) {
+            readAloudUploadBtn.classList.remove('reading');
+            const label = readAloudUploadBtn.querySelector('[data-i18n]');
+            if (label) {
+                label.setAttribute('data-i18n', 'upload.readAloud');
+                label.textContent = window.i18n.t('upload.readAloud');
+            }
+        }
+    }
+
+    function toggleUploadReadAloud() {
+        if (window.speechSynthesis.speaking) {
+            stopUploadSpeech();
+            return;
+        }
+
+        const text = generatedAlt?.textContent;
+        if (!text) return;
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        const lang = window.i18n.getCurrentLang();
+        utterance.lang = lang === 'ar' ? 'ar-SA' : 'en';
+
+        readAloudUploadBtn.classList.add('reading');
+        const label = readAloudUploadBtn.querySelector('[data-i18n]');
+        if (label) {
+            label.setAttribute('data-i18n', 'upload.stopReading');
+            label.textContent = window.i18n.t('upload.stopReading');
+        }
+
+        utterance.onend = () => stopUploadSpeech();
+        utterance.onerror = () => stopUploadSpeech();
+
+        window.speechSynthesis.speak(utterance);
+    }
+
+    readAloudUploadBtn?.addEventListener('click', toggleUploadReadAloud);
+
     // Try another button
-    tryAnother?.addEventListener('click', resetUpload);
+    tryAnother?.addEventListener('click', () => { stopUploadSpeech(); resetUpload(); });
     retryUpload?.addEventListener('click', resetUpload);
 
     // Copy button
@@ -151,12 +194,12 @@ function initUpload() {
         const maxSize = 4 * 1024 * 1024; // 4MB
 
         if (!validTypes.includes(file.type)) {
-            showError('Invalid file type. Please use JPG, PNG, WEBP, or GIF.');
+            showError(window.i18n.t('error.invalidType'));
             return;
         }
 
         if (file.size > maxSize) {
-            showError('File too large. Maximum size is 4MB.');
+            showError(window.i18n.t('error.tooLarge'));
             return;
         }
 
@@ -184,13 +227,14 @@ function initUpload() {
                 body: JSON.stringify({
                     image: base64Data,
                     mimeType: file.type,
+                    lang: window.i18n.getCurrentLang(),
                 }),
             });
 
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.error || 'Failed to generate ALT text');
+                throw new Error(data.error || window.i18n.t('error.generateFailed'));
             }
 
             // Show result
@@ -262,7 +306,7 @@ function showToast(message, type = 'success') {
 async function copyToClipboard(text) {
     try {
         await navigator.clipboard.writeText(text);
-        showToast('Copied to clipboard!');
+        showToast(window.i18n.t('toast.copied'));
     } catch (err) {
         // Fallback for older browsers
         const textarea = document.createElement('textarea');
@@ -273,7 +317,7 @@ async function copyToClipboard(text) {
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-        showToast('Copied to clipboard!');
+        showToast(window.i18n.t('toast.copied'));
     }
 }
 

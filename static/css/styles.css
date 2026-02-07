@@ -171,6 +171,38 @@ em {
     color: var(--color-text);
 }
 
+/* Language Toggle */
+.lang-toggle {
+    display: flex;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-full);
+    padding: 3px;
+    margin-left: var(--space-md);
+    flex-shrink: 0;
+}
+
+.lang-btn {
+    padding: 6px 14px;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.lang-btn:hover {
+    color: var(--color-text);
+}
+
+.lang-btn.active {
+    background: var(--color-accent);
+    color: var(--color-bg);
+}
+
 /* ========================================
    Hero Section
 ======================================== */
@@ -750,7 +782,15 @@ em {
 .alt-modal-footer {
     padding: var(--space-md) var(--space-xl) var(--space-lg);
     display: flex;
+    gap: var(--space-sm);
     justify-content: flex-end;
+}
+
+/* Read Aloud active state */
+.btn.reading {
+    background: rgba(249, 115, 22, 0.2);
+    border-color: var(--color-accent);
+    color: var(--color-accent-light);
 }
 
 /* ========================================
@@ -1419,4 +1459,64 @@ html, body {
         flex-direction: column;
         text-align: center;
     }
+}
+
+/* ========================================
+   RTL (Right-to-Left) Support
+======================================== */
+[dir="rtl"] {
+    font-family: 'Noto Sans Arabic', var(--font-body);
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+    font-family: 'Noto Sans Arabic', var(--font-display);
+}
+
+[dir="rtl"] .lang-toggle {
+    margin-left: 0;
+    margin-right: var(--space-md);
+}
+
+[dir="rtl"] .hero-solution {
+    border-left: none;
+    border-right: 3px solid var(--color-accent);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+[dir="rtl"] .prompt-quote {
+    border-left: none;
+    border-right: 3px solid var(--color-accent);
+    padding-left: 0;
+    padding-right: var(--space-lg);
+}
+
+[dir="rtl"] .hero-visual {
+    right: auto;
+    left: 5%;
+}
+
+[dir="rtl"] .alt-text.typing {
+    border-right: none;
+    border-left: 2px solid var(--color-accent);
+}
+
+[dir="rtl"] .hero-cta svg {
+    transform: scaleX(-1);
+}
+
+[dir="rtl"] .btn {
+    font-family: 'Noto Sans Arabic', var(--font-display);
+}
+
+[dir="rtl"] .nav-links {
+    font-family: 'Noto Sans Arabic', var(--font-body);
+}
+
+[dir="rtl"] .lang-btn {
+    font-family: var(--font-display);
 }

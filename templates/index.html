@@ -15,7 +15,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
@@ -36,18 +36,22 @@
                 <span class="logo-text">AltVision</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#demo">Demo</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#try-it">Try It</a></li>
+                <li><a href="#about" data-i18n="nav.about">About</a></li>
+                <li><a href="#demo" data-i18n="nav.demo">Demo</a></li>
+                <li><a href="#how-it-works" data-i18n="nav.howItWorks">How It Works</a></li>
+                <li><a href="#try-it" data-i18n="nav.tryIt">Try It</a></li>
             </ul>
+            <div class="lang-toggle" role="group" aria-label="Language selector">
+                <button id="langEn" class="lang-btn active" onclick="window.i18n.setLanguage('en')">EN</button>
+                <button id="langAr" class="lang-btn" onclick="window.i18n.setLanguage('ar')">AR</button>
+            </div>
         </div>
     </nav>
 
     <!-- Proof of Concept Banner -->
     <div class="poc-banner" role="banner">
-        <span class="poc-icon" aria-hidden="true">💡</span>
-        <p><strong>Proof of Concept:</strong> This is a demonstration of how the web could become more accessible. Imagine every platform with this feature built-in.</p>
+        <span class="poc-icon" aria-hidden="true">&#x1F4A1;</span>
+        <p data-i18n-html="poc.text"><strong>Proof of Concept:</strong> This is a demonstration of how the web could become more accessible. Imagine every platform with this feature built-in.</p>
     </div>
 
     <!-- Hero Section -->
@@ -59,30 +63,30 @@
         <div class="hero-content">
             <div class="hero-badge">
                 <span class="badge-dot" aria-hidden="true"></span>
-                Reimagining Accessibility
+                <span data-i18n="hero.badge">Reimagining Accessibility</span>
             </div>
-            <h1 class="hero-title">
+            <h1 class="hero-title" data-i18n-html="hero.title">
                 What If Blind Users Could
                 <span class="title-highlight">See</span>
                 Every Image?
             </h1>
-            <p class="hero-subtitle">
+            <p class="hero-subtitle" data-i18n-html="hero.subtitle1">
                 When blind users scroll through <strong>X (Twitter)</strong>, they encounter countless images.
                 Their screen reader says <em>"image"</em> — nothing more. They miss the memes,
                 the photos, the visual stories that everyone else enjoys.
             </p>
-            <p class="hero-subtitle hero-solution">
+            <p class="hero-subtitle hero-solution" data-i18n-html="hero.subtitle2">
                 <strong>The solution?</strong> An <span class="alt-badge-inline">ALT</span> button on every image.
                 One tap, and AI describes what's in the picture — giving blind users access to the visual web.
             </p>
             <div class="hero-cta">
                 <a href="#demo" class="btn btn-primary">
-                    See It In Action
+                    <span data-i18n="hero.cta.primary">See It In Action</span>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                         <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </a>
-                <a href="#how-it-works" class="btn btn-secondary">How It Works</a>
+                <a href="#how-it-works" class="btn btn-secondary" data-i18n="hero.cta.secondary">How It Works</a>
             </div>
         </div>
         <div class="hero-visual" aria-hidden="true">
@@ -107,14 +111,14 @@
     <!-- Stats Section -->
     <section class="stats" id="stats">
         <div class="stats-container">
-            <h2 class="stats-title">The Accessibility Gap</h2>
+            <h2 class="stats-title" data-i18n="stats.title">The Accessibility Gap</h2>
             <div class="stats-grid">
                 <div class="stat-card" data-animate>
                     <div class="stat-number">
                         <span class="counter" data-target="96.3">0</span>
                         <span class="stat-unit">%</span>
                     </div>
-                    <p class="stat-label">of websites fail basic accessibility standards</p>
+                    <p class="stat-label" data-i18n="stats.label1">of websites fail basic accessibility standards</p>
                     <div class="stat-bar">
                         <div class="stat-bar-fill" style="--fill-width: 96.3%"></div>
                     </div>
@@ -124,7 +128,7 @@
                         <span class="counter" data-target="55.5">0</span>
                         <span class="stat-unit">%</span>
                     </div>
-                    <p class="stat-label">of images on the web lack ALT text</p>
+                    <p class="stat-label" data-i18n="stats.label2">of images on the web lack ALT text</p>
                     <div class="stat-bar">
                         <div class="stat-bar-fill" style="--fill-width: 55.5%"></div>
                     </div>
@@ -134,7 +138,7 @@
                         <span class="counter" data-target="285">0</span>
                         <span class="stat-unit">M</span>
                     </div>
-                    <p class="stat-label">visually impaired users globally</p>
+                    <p class="stat-label" data-i18n="stats.label3">visually impaired users globally</p>
                     <div class="stat-bar">
                         <div class="stat-bar-fill" style="--fill-width: 100%"></div>
                     </div>
@@ -147,8 +151,8 @@
                     </svg>
                 </div>
                 <div class="sr-content">
-                    <p class="sr-voice">"Image. Image. Image. Link: Read more."</p>
-                    <p class="sr-explanation">This is what a screen reader says when images lack descriptions.</p>
+                    <p class="sr-voice" data-i18n="stats.sr.voice">"Image. Image. Image. Link: Read more."</p>
+                    <p class="sr-explanation" data-i18n="stats.sr.explanation">This is what a screen reader says when images lack descriptions.</p>
                 </div>
             </div>
         </div>
@@ -158,9 +162,9 @@
     <section class="demo-section" id="demo">
         <div class="demo-container">
             <div class="demo-header">
-                <span class="demo-overline">Live Demo</span>
-                <h2 class="demo-title">Experience It Like a Blind User</h2>
-                <p class="demo-subtitle">
+                <span class="demo-overline" data-i18n="demo.overline">Live Demo</span>
+                <h2 class="demo-title" data-i18n="demo.title">Experience It Like a Blind User</h2>
+                <p class="demo-subtitle" data-i18n-html="demo.subtitle">
                     Below is a post from X. For blind users, the image is invisible — their screen reader
                     just says "image." But with the <span class="alt-badge-inline">ALT</span> button,
                     they can tap once and hear exactly what's in the picture.
@@ -179,11 +183,11 @@
                                 <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"/>
                             </svg>
                             <a href="https://x.com/AZ1RUQ" target="_blank" rel="noopener noreferrer" class="x-post-handle-link"><span class="x-post-handle">@AZ1RUQ</span></a>
-                            <span class="x-post-separator">·</span>
+                            <span class="x-post-separator">&middot;</span>
                             <span class="x-post-time">2h</span>
                         </header>
                         <div class="x-post-text">
-                            <p>AI is transforming how we make the web accessible for everyone! Every image deserves a description. <span class="hashtag">#a11y</span> <span class="hashtag">#accessibility</span> <span class="hashtag">#AIforGood</span></p>
+                            <p data-i18n-html="demo.postText">AI is transforming how we make the web accessible for everyone! Every image deserves a description. <span class="hashtag">#accessibility</span> <span class="hashtag">#AIforGood</span></p>
                         </div>
                         <div class="x-post-image-container">
                             <img
@@ -260,7 +264,7 @@
                         <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <p>Tap the <span class="alt-badge-inline">ALT</span> button — just like a blind user would — to hear what's in the image</p>
+                <p data-i18n-html="demo.instruction">Tap the <span class="alt-badge-inline">ALT</span> button — just like a blind user would — to hear what's in the image</p>
             </div>
         </div>
     </section>
@@ -270,7 +274,7 @@
         <div class="alt-modal-backdrop"></div>
         <div class="alt-modal-content">
             <header class="alt-modal-header">
-                <h3 id="altModalTitle">Image Description</h3>
+                <h3 id="altModalTitle" data-i18n="modal.title">Image Description</h3>
                 <button class="alt-modal-close" aria-label="Close modal" id="altModalClose">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -280,7 +284,7 @@
             <div class="alt-modal-body">
                 <div class="alt-loading" id="altLoading">
                     <div class="loading-spinner"></div>
-                    <p>Generating description...</p>
+                    <p data-i18n="modal.loading">Generating description...</p>
                 </div>
                 <div class="alt-result" id="altResult" hidden>
                     <p class="alt-text" id="altText"></p>
@@ -294,12 +298,19 @@
                 </div>
             </div>
             <footer class="alt-modal-footer">
+                <button class="btn btn-secondary" id="readAloudBtn" aria-label="Read aloud">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 1.5v13M5 4.5L2 7v2l3 2.5V4.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11 5.5a3 3 0 0 1 0 5M13 3.5a6 6 0 0 1 0 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span data-i18n="modal.readAloud">Read Aloud</span>
+                </button>
                 <button class="btn btn-secondary" id="regenerateBtn">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                         <path d="M14 8A6 6 0 1 1 8 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         <path d="M10 2H8v2h2V2z" fill="currentColor"/>
                     </svg>
-                    Regenerate
+                    <span data-i18n="modal.regenerate">Regenerate</span>
                 </button>
             </footer>
         </div>
@@ -309,9 +320,9 @@
     <section class="upload-section" id="try-it">
         <div class="upload-container">
             <div class="upload-header">
-                <span class="upload-overline">Interactive Demo</span>
-                <h2 class="upload-title">Try It Yourself</h2>
-                <p class="upload-subtitle">Upload any image and watch AI generate an accessible description in seconds.</p>
+                <span class="upload-overline" data-i18n="upload.overline">Interactive Demo</span>
+                <h2 class="upload-title" data-i18n="upload.title">Try It Yourself</h2>
+                <p class="upload-subtitle" data-i18n="upload.subtitle">Upload any image and watch AI generate an accessible description in seconds.</p>
             </div>
 
             <div class="upload-zone" id="uploadZone" role="button" tabindex="0" aria-label="Click or drag to upload an image">
@@ -325,10 +336,10 @@
                         <path d="M40 9v6M37 12h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </div>
-                <p class="upload-text">Drag & drop an image here</p>
-                <p class="upload-or">or</p>
-                <span class="upload-btn">Browse Files</span>
-                <p class="upload-formats" id="uploadHelp">Supports: JPG, PNG, WEBP, GIF (Max 4MB)</p>
+                <p class="upload-text" data-i18n="upload.dragText">Drag & drop an image here</p>
+                <p class="upload-or" data-i18n="upload.or">or</p>
+                <span class="upload-btn" data-i18n="upload.browse">Browse Files</span>
+                <p class="upload-formats" id="uploadHelp" data-i18n="upload.formats">Supports: JPG, PNG, WEBP, GIF (Max 4MB)</p>
             </div>
 
             <div class="upload-results" id="uploadResults" hidden>
@@ -338,12 +349,12 @@
                     </div>
                     <div class="result-output">
                         <div class="result-header">
-                            <h3>Generated ALT Text</h3>
-                            <div class="result-badge">AI Generated</div>
+                            <h3 data-i18n="upload.resultTitle">Generated ALT Text</h3>
+                            <div class="result-badge" data-i18n="upload.resultBadge">AI Generated</div>
                         </div>
                         <div class="result-loading" id="resultLoading">
                             <div class="loading-spinner"></div>
-                            <p>Analyzing image...</p>
+                            <p data-i18n="upload.analyzing">Analyzing image...</p>
                         </div>
                         <div class="result-content" id="resultContent" hidden>
                             <p class="result-text" id="generatedAlt"></p>
@@ -353,9 +364,16 @@
                                         <rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
                                         <path d="M11 3H3a1 1 0 0 0-1 1v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                                     </svg>
-                                    Copy to Clipboard
+                                    <span data-i18n="upload.copy">Copy to Clipboard</span>
                                 </button>
-                                <button class="btn btn-secondary" id="tryAnother">Upload Another</button>
+                                <button class="btn btn-secondary" id="readAloudUploadBtn" aria-label="Read aloud">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 1.5v13M5 4.5L2 7v2l3 2.5V4.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M11 5.5a3 3 0 0 1 0 5M13 3.5a6 6 0 0 1 0 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                    <span data-i18n="upload.readAloud">Read Aloud</span>
+                                </button>
+                                <button class="btn btn-secondary" id="tryAnother" data-i18n="upload.another">Upload Another</button>
                             </div>
                         </div>
                         <div class="result-error" id="resultError" hidden>
@@ -364,7 +382,7 @@
                                 <path d="M10 6v4M10 13v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                             </svg>
                             <p id="resultErrorText"></p>
-                            <button class="btn btn-secondary" id="retryUpload">Try Again</button>
+                            <button class="btn btn-secondary" id="retryUpload" data-i18n="upload.retry">Try Again</button>
                         </div>
                     </div>
                 </div>
@@ -376,67 +394,67 @@
     <section class="how-it-works-section" id="how-it-works">
         <div class="hiw-container">
             <div class="hiw-header">
-                <span class="hiw-overline">Behind the Scenes</span>
-                <h2 class="hiw-title">How Does It Work?</h2>
-                <p class="hiw-subtitle">The magic is simple: AI vision models can describe images in natural language. Here's what happens when you click the ALT button.</p>
+                <span class="hiw-overline" data-i18n="hiw.overline">Behind the Scenes</span>
+                <h2 class="hiw-title" data-i18n="hiw.title">How Does It Work?</h2>
+                <p class="hiw-subtitle" data-i18n="hiw.subtitle">The magic is simple: AI vision models can describe images in natural language. Here's what happens when you click the ALT button.</p>
             </div>
 
             <div class="hiw-steps">
                 <div class="hiw-step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h3>Image Capture</h3>
-                        <p>When you tap the ALT button, the image is sent to an AI vision service (Cloudinary's AI in this demo).</p>
+                        <h3 data-i18n="hiw.step1.title">Image Capture</h3>
+                        <p data-i18n="hiw.step1.desc">When you tap the ALT button, the image is sent to an AI vision service (Cloudinary's AI in this demo).</p>
                     </div>
                 </div>
                 <div class="hiw-step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3>AI Analysis</h3>
-                        <p>The AI examines the image — identifying objects, people, actions, text, colors, and context.</p>
+                        <h3 data-i18n="hiw.step2.title">AI Analysis</h3>
+                        <p data-i18n="hiw.step2.desc">The AI examines the image — identifying objects, people, actions, text, colors, and context.</p>
                     </div>
                 </div>
                 <div class="hiw-step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3>Natural Description</h3>
-                        <p>A human-readable description is generated and spoken aloud by the screen reader.</p>
+                        <h3 data-i18n="hiw.step3.title">Natural Description</h3>
+                        <p data-i18n="hiw.step3.desc">A human-readable description is generated and spoken aloud by the screen reader.</p>
                     </div>
                 </div>
             </div>
 
             <div class="hiw-prompt-section">
-                <h3 class="prompt-title">The Prompt Philosophy</h3>
-                <p class="prompt-intro">Good ALT text isn't just about listing objects — it's about conveying meaning. The AI is guided to create descriptions that are:</p>
+                <h3 class="prompt-title" data-i18n="hiw.prompt.title">The Prompt Philosophy</h3>
+                <p class="prompt-intro" data-i18n="hiw.prompt.intro">Good ALT text isn't just about listing objects — it's about conveying meaning. The AI is guided to create descriptions that are:</p>
                 <div class="prompt-principles">
                     <div class="principle">
-                        <span class="principle-icon" aria-hidden="true">🎯</span>
+                        <span class="principle-icon" aria-hidden="true">&#x1F3AF;</span>
                         <div>
-                            <strong>Concise</strong>
-                            <p>Short enough to not interrupt the flow of browsing</p>
+                            <strong data-i18n="hiw.principle1.title">Concise</strong>
+                            <p data-i18n="hiw.principle1.desc">Short enough to not interrupt the flow of browsing</p>
                         </div>
                     </div>
                     <div class="principle">
-                        <span class="principle-icon" aria-hidden="true">💭</span>
+                        <span class="principle-icon" aria-hidden="true">&#x1F4AD;</span>
                         <div>
-                            <strong>Contextual</strong>
-                            <p>Focuses on what matters in the context of the post</p>
+                            <strong data-i18n="hiw.principle2.title">Contextual</strong>
+                            <p data-i18n="hiw.principle2.desc">Focuses on what matters in the context of the post</p>
                         </div>
                     </div>
                     <div class="principle">
-                        <span class="principle-icon" aria-hidden="true">🗣️</span>
+                        <span class="principle-icon" aria-hidden="true">&#x1F5E3;&#xFE0F;</span>
                         <div>
-                            <strong>Natural</strong>
-                            <p>Written like how you'd describe it to a friend</p>
+                            <strong data-i18n="hiw.principle3.title">Natural</strong>
+                            <p data-i18n="hiw.principle3.desc">Written like how you'd describe it to a friend</p>
                         </div>
                     </div>
                 </div>
                 <div class="prompt-example">
-                    <p class="prompt-label">Example of a good AI-generated description:</p>
-                    <blockquote class="prompt-quote">
+                    <p class="prompt-label" data-i18n="hiw.example.label">Example of a good AI-generated description:</p>
+                    <blockquote class="prompt-quote" data-i18n="hiw.example.quote">
                         "A woman laughing while holding a coffee cup at an outdoor cafe, sunlight streaming through the trees behind her."
                     </blockquote>
-                    <p class="prompt-note">Not just "woman with cup" — but the emotion, the setting, the atmosphere.</p>
+                    <p class="prompt-note" data-i18n="hiw.example.note">Not just "woman with cup" — but the emotion, the setting, the atmosphere.</p>
                 </div>
             </div>
         </div>
@@ -456,7 +474,7 @@
                     </span>
                     <span>AltVision</span>
                 </div>
-                <p class="footer-text">A proof-of-concept demonstrating how AI could make social media accessible for blind users. Imagine if every platform had this built-in.</p>
+                <p class="footer-text" data-i18n="footer.text">A proof-of-concept demonstrating how AI could make social media accessible for blind users. Imagine if every platform had this built-in.</p>
                 <div class="footer-links">
                     <a href="mailto:abdulaziz.ruqush@gmail.com">Email</a>
                     <a href="https://www.linkedin.com/in/abdulaziz-binruqush-262448252/" target="_blank" rel="noopener">LinkedIn</a>
@@ -464,7 +482,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 AltVision Demo. Educational purposes only.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 AltVision Demo. Educational purposes only.</p>
             </div>
         </div>
     </footer>
@@ -480,6 +498,7 @@
     </div>
 
     <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/i18n.js') }}"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
     <script src="{{ url_for('static', filename='js/x-clone.js') }}"></script>
 </body>

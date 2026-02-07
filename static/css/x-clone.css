@@ -338,3 +338,13 @@
     background: var(--x-accent);
     color: white;
 }
+
+/* RTL overrides for X post */
+[dir="rtl"] .x-post {
+    direction: rtl;
+}
+
+[dir="rtl"] .alt-badge-btn {
+    left: auto;
+    right: 8px;
+}

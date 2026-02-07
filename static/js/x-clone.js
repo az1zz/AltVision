@@ -45,6 +45,8 @@ function openModal() {
 }
 
 function closeModal() {
+    stopModalSpeech();
+
     altModal.hidden = true;
     altModal.setAttribute('aria-hidden', 'true');
     altBadgeBtn.setAttribute('aria-expanded', 'false');
@@ -71,6 +73,7 @@ function handleEscape(e) {
 async function generateAltText() {
     if (isLoading) return;
 
+    stopModalSpeech();
     isLoading = true;
     altBadgeBtn.classList.add('loading');
 
@@ -98,13 +101,14 @@ async function generateAltText() {
             body: JSON.stringify({
                 image: imageData.base64,
                 mimeType: imageData.mimeType,
+                lang: window.i18n.getCurrentLang(),
             }),
         });
 
         const data = await response.json();
 
         if (!response.ok) {
-            throw new Error(data.error || 'Failed to generate ALT text');
+            throw new Error(data.error || window.i18n.t('error.generateFailed'));
         }
 
         // Show result
@@ -228,6 +232,53 @@ async function createPlaceholderImage() {
         base64,
         mimeType: 'image/jpeg',
     };
+}
+
+// ========================================
+// Text-to-Speech (Read Aloud)
+// ========================================
+const readAloudBtn = document.getElementById('readAloudBtn');
+
+function stopModalSpeech() {
+    window.speechSynthesis.cancel();
+    if (readAloudBtn) {
+        readAloudBtn.classList.remove('reading');
+        const label = readAloudBtn.querySelector('[data-i18n]');
+        if (label) {
+            label.setAttribute('data-i18n', 'modal.readAloud');
+            label.textContent = window.i18n.t('modal.readAloud');
+        }
+    }
+}
+
+function toggleModalReadAloud() {
+    if (window.speechSynthesis.speaking) {
+        stopModalSpeech();
+        return;
+    }
+
+    const text = altText?.textContent;
+    if (!text) return;
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    const lang = window.i18n.getCurrentLang();
+    utterance.lang = lang === 'ar' ? 'ar-SA' : 'en';
+
+    readAloudBtn.classList.add('reading');
+    const label = readAloudBtn.querySelector('[data-i18n]');
+    if (label) {
+        label.setAttribute('data-i18n', 'modal.stopReading');
+        label.textContent = window.i18n.t('modal.stopReading');
+    }
+
+    utterance.onend = () => stopModalSpeech();
+    utterance.onerror = () => stopModalSpeech();
+
+    window.speechSynthesis.speak(utterance);
+}
+
+if (readAloudBtn) {
+    readAloudBtn.addEventListener('click', toggleModalReadAloud);
 }
 
 // ========================================

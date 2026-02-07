@@ -4,6 +4,7 @@ import cloudinary.uploader
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
+from deep_translator import GoogleTranslator
 
 load_dotenv()
 
@@ -27,6 +28,7 @@ def generate_alt():
         data = request.json
         image_data = data.get('image')
         mime_type = data.get('mimeType', 'image/jpeg')
+        lang = data.get('lang', 'en')
 
         if not image_data:
             return jsonify({'error': 'No image data provided'}), 400
@@ -74,6 +76,13 @@ def generate_alt():
         # If still no result, provide a generic response
         if not alt_text:
             alt_text = "Image uploaded successfully but no description could be generated. Please ensure AI captioning add-on is enabled."
+
+        # Translate to Arabic if requested
+        if lang == 'ar' and alt_text:
+            try:
+                alt_text = GoogleTranslator(source='en', target='ar').translate(alt_text)
+            except Exception:
+                pass  # Fall back to English if translation fails
 
         # Optionally delete the uploaded image to save storage
         try:
